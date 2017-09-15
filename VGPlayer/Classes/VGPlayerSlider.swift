@@ -27,12 +27,14 @@ open class VGPlayerSlider: UISlider {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// 设置滑块可触摸范围的大小
     override open func thumbRect(forBounds bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect {
         let rect = super.thumbRect(forBounds: bounds, trackRect: rect, value: value)
         let newRect = CGRect(x: rect.origin.x, y: rect.origin.y + 1, width: rect.width, height: rect.height)
         return newRect
     }
     
+    /// 修改进度条尺寸
     override open func trackRect(forBounds bounds: CGRect) -> CGRect {
         let rect = super.trackRect(forBounds: bounds)
         let newRect = CGRect(origin: rect.origin, size: CGSize(width: rect.size.width, height: 2.0))
@@ -40,6 +42,7 @@ open class VGPlayerSlider: UISlider {
         return newRect
     }
     
+    /// 设置进度条划过的和未划过的图片的尺寸设置进度条划过的和未划过的图片的尺寸
     func configureSlider() {
         self.maximumValue = 1.0
         self.minimumValue = 0.0
